@@ -1,0 +1,39 @@
+.layui-footer {
+  text-align: center;
+}
+.iconfont,.layui-icon {
+  margin-right: 10px;
+}
+.layui-nav .layui-nav-item dl{
+  margin-left: 20px;
+}
+iframe {
+  width: 100%;
+  height: 100%;
+}
+.layui-body {
+  overflow: hidden;
+}
+a {
+  transform: none;
+  transition: none;
+}
+.person {
+  text-align: center;
+  border-bottom: 1px solid #ccc;
+  padding: 20px 0;
+}
+.headImg,.avatar {
+  display: none;
+}
+.text-avatar {
+  width: 30px;
+  height: 30px;
+  border-radius: 20px;
+  font: bold 14px/30px '宋体';
+  background: darkblue;
+  color: skyblue;
+  text-align: center;
+  display: inline-block;
+
+}
