@@ -40,6 +40,7 @@ $(function () {
     var imgSrc = res.data.user_pic;
     if (imgSrc) {
       $('.headImg').show();
+      $('.headImg').attr('src',res.data.user_pic)
       $('.avatar').hide();
     } else {
       $('.headImg').hide();
@@ -48,5 +49,6 @@ $(function () {
       $('.text-avatar').html(text_avatar);
     }
   }
+  window.getUserInfo = getUserInfo;
 
 })
