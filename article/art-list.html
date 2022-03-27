@@ -15,12 +15,96 @@
   <div class="layui-card">
     <div class="layui-card-header">文章列表</div>
     <div class="layui-card-body">
-      文章列表11
+      <!-- 搜索 -->
+      <form class="layui-form">
+        <div class="layui-form-item layui-inline cate-box">
+          <!-- <select name="cate_id" lay-verify="">
+            <option value="">请选择一个城市</option>
+            <option value="010">北京</option>
+            <option value="021">上海</option>
+            <option value="0571">杭州</option>
+          </select> -->
+        </div>
+        <div class="layui-form-item layui-inline">
+          <select name="state" id="artState" lay-verify="">
+            <option value="">请选择状态</option>
+            <option value="已发布">已发布</option>
+            <option value="草稿">草稿</option>
+          </select>
+        </div>
+        <div class="layui-form-item layui-inline">
+          <button type="button" id="searchBtn" class="layui-btn">筛选</button>
+        </div>
+      </form>
+      <!-- 文章列表 -->
+      <table class="layui-table">
+        <colgroup>
+          <col width="100">
+          <col>
+          <col width="150">
+          <col width="250">
+          <col width="150">
+          <col width="150">
+        </colgroup>
+        <thead>
+          <tr>
+            <th>编号</th>
+            <th>标题</th>
+            <th>分类</th>
+            <th>时间</th>
+            <th>状态</th>
+            <th>操作</th>
+          </tr>
+        </thead>
+        <tbody>
+          <!-- <tr>
+            <td>1</td>
+            <td>贤心</td>
+            <td>贤心</td>
+            <td>贤心</td>
+            <td>2016-11-29</td>
+            <td>
+              <button type="button" class="layui-btn layui-btn-xs">编辑</button>
+              <button type="button" class="layui-btn layui-btn-danger layui-btn-xs">删除</button>
+            </td> -->
+          </tr>
+
+        </tbody>
+      </table>
+      <!-- 页码条 -->
+      <div id="page_box"></div>
     </div>
   </div>
+  <!-- 模版表格列表 -->
+  <script type="text/html" id="articleList">
+    {{each data}}
+    <tr>
+      <td>{{$index}}</td>
+      <td>{{$value.title}}</td>
+      <td>{{$value.cate_name}}</td>
+      <td>{{$value.pub_date|dateFormat}}</td>
+      <td>{{$value.state}}</td>
+      <td>
+        <button data-id="{{$value.Id}}" type="button" class="layui-btn layui-btn-xs">编辑</button>
+        <button data-id="{{$value.Id}}" type="button" class="layui-btn layui-btn-danger del-art layui-btn-xs">删除</button>
+      </td>
+    </tr>
+    {{/each}}
+  </script>
+  <!-- 页码条 -->
+  <!-- 文章分类 -->
+  <script type="text/html" id="cateType">
+      <select id="selectCId" name="cate_id" >
+        <option value="" >请选择文章类别</option>
+        {{each data}}
+        <option value="{{$value.Id}}">{{$value.name}}</option>
+        {{/each}}
+      </select>
+    </script>
 </body>
 <script src="../assets/lib/layui/layui.all.js"></script>
 <script src="../assets/lib/jquery.js"></script>
+<script src="../assets/lib/template-web.js"></script>
 <script src="../assets/js/base.js"></script>
 <script src="../assets/js/art_list.js"></script>
 

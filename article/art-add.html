@@ -15,12 +15,86 @@
   <div class="layui-card">
     <div class="layui-card-header">发布文章</div>
     <div class="layui-card-body">
-      发布文章
+      <form class="layui-form" id="article" lay-filter="formUserInfo">
+        <!-- 标题 -->
+        <div class="layui-form-item">
+          <label class="layui-form-label">标题</label>
+          <div class="layui-input-block">
+            <input type="text" name="title" lay-verify="required" autocomplete="off" class="layui-input">
+          </div>
+        </div>
+        <!-- 类别 -->
+        <div class="layui-form-item">
+          <label class="layui-form-label">类别</label>
+          <div class="layui-input-block cate-box">
+            <!-- <select name="cate_id" lay-verify="required">
+              <option value=""></option>
+              <option value="0">北京</option>
+              <option value="1">上海</option>
+              <option value="2">广州</option>
+              <option value="3">深圳</option>
+              <option value="4">杭州</option>
+            </select> -->
+          </div>
+        </div>
+        <!-- outher -->
+        <div class="layui-form-item">
+          <!-- 左侧的 label -->
+          <label class="layui-form-label">文章内容</label>
+          <!-- 为富文本编辑器外部的容器设置高度 -->
+          <div class="layui-input-block" style="height: 400px;">
+            <!-- 重要：将来这个 textarea 会被初始化为富文本编辑器 -->
+            <textarea name="content"></textarea>
+          </div>
+        </div>
+        <!-- caijian -->
+        <div class="layui-form-item">
+          <!-- 左侧的 label -->
+          <label class="layui-form-label">文章封面</label>
+          <!-- 选择封面区域 -->
+          <div class="layui-input-block cover-box">
+            <!-- 左侧裁剪区域 -->
+            <div class="cover-left">
+              <img id="image" src="/assets/images/sample2.jpg" alt="" />
+            </div>
+            <!-- 右侧预览区域和选择封面区域 -->
+            <div class="cover-right">
+              <!-- 预览的区域 -->
+              <div class="img-preview"></div>
+              <!-- 选择封面按钮 -->
+              <button id="subImg" type="button" class="layui-btn layui-btn-danger">选择封面</button>
+              <input type="file" id="file" accept="image/jpeg,image/png">
+            </div>
+          </div>
+        </div>
+        <!-- 操作 -->
+        <div class="layui-form-item">
+          <div class="layui-input-block">
+            <button class="layui-btn" lay-submit lay-filter="formDemo" id="sub">立即提交</button>
+            <button class="layui-btn layui-btn-primary layui-border-green" id="save" lay-submit lay-filter="formDemo">存为草稿</button>
+          </div>
+        </div>
+      </form>
     </div>
   </div>
+  <!-- 模版1 -->
+  <script type="text/html" id="cateType">
+    <select name="cate_id" lay-verify="required">
+      <option value="" selected>请选择文章类别</option>
+      {{each data}}
+      <option value="{{$value.Id}}">{{$value.name}}</option>
+      {{/each}}
+    </select>
+  </script>
+  <!-- 模版2 -->
 </body>
 <script src="../assets/lib/layui/layui.all.js"></script>
 <script src="../assets/lib/jquery.js"></script>
+<script src="../assets/lib/cropper/Cropper.js"></script>
+<script src="../assets/lib/cropper/jquery-cropper.js"></script>
+<script src="../assets//lib/template-web.js"></script>
+<script src="../assets/lib/tinymce/tinymce.min.js"></script>
+<script src="../assets/lib/tinymce/tinymce_setup.js"></script>
 <script src="../assets/js/base.js"></script>
 <script src="../assets/js/art_add.js"></script>
 
